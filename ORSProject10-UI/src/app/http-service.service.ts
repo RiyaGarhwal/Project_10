@@ -82,7 +82,7 @@ export class HttpServiceService {
 
     }, error => {
       console.log('ORS Error--', error);
-    });``
+    });
   }
 
 

@@ -42,7 +42,7 @@ public class ProductDTO extends BaseDTO{
 
 
 	public String getKey() {
-		return id + "";
+		return name;
 	}
 
 	
@@ -82,8 +82,9 @@ public class ProductDTO extends BaseDTO{
 
 	@Override
 	public LinkedHashMap<String, Object> uniqueKeys() {
-		// TODO Auto-generated method stub
-		return null;
+		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
+		map.put("name", name);
+		return map;
 	}
 
 }

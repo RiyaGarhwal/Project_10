@@ -1,0 +1,172 @@
+<app-navbar></app-navbar>
+
+<style>
+  .grad {
+    background-image: linear-gradient(to bottom right, rgb(32, 168, 168), rgb(219, 231, 237));
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-bottom: 25px;
+    
+  }
+
+  .background {
+    padding-top: 3%;
+    padding-bottom: 13%;
+    background: url('assets/files/wall.jpg') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: auto; 
+  }
+
+  .required-field {
+    color: red;
+  }
+
+  .alertRedColor {
+    color: red;
+  }
+</style>
+
+<div class="container-fluid background">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 col-md-6 col-lg-4">
+      <div class="card" style="padding-top: 70px;">
+        <div class="card-body shadow-lg grad">
+          <form name="followUpForm">
+
+            <h2 *ngIf="!form.data.id" class="text-primary font-weight-bold text-center">
+              {{ 'Add followup' | translate }}
+            </h2>
+            <h2 *ngIf="form.data.id" class="text-primary font-weight-bold text-center">
+              {{ 'Update followup' | translate }}
+            </h2>
+
+            <!-- Form error messages -->
+            <div *ngIf="form.error && form.message" class="alert alert-danger alert-dismissible fade show">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ form.message }}
+            </div>
+            <div *ngIf="!form.error && form.message" class="alert alert-success alert-dismissible fade show">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ form.message }}
+            </div>
+
+            <!-- Fees Field -->
+            <div class="form-group">
+              <label><b>{{ 'fees' | translate }}</b><span class="required-field">*</span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-phone grey-text"></i></div>
+                </div>
+                <input type="text" name="fees" [(ngModel)]="form.data.fees" class="form-control"
+                  placeholder="{{ 'Enter fees' | translate }}" required>
+              </div>
+              <span class="alertRedColor">{{ form.inputerror.fees }}</span>
+            </div>
+
+            <!-- Visit Date Field -->
+            <div class="form-group pt-2">
+              <label><b>{{ 'VisitDate' | translate }}</b><span class="required-field">*</span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-calendar grey-text"></i></div>
+                </div>
+                <input type="date" name="visitDate" [value]="form.data.visitDate | date:'yyyy-MM-dd'"
+                  class="form-control" (input)="form.data.visitDate=parseDate($event.target.value)"
+                  placeholder="{{ 'Enter visitDate ' | translate }}" required>
+              </div>
+              <span class="alertRedColor">{{ form.inputerror.visitDate }}</span>
+            </div>
+
+            <!-- Doctor Field -->
+            <div class="form-group pt-2">
+              <label><b>{{ 'Doctor' | translate }}</b><span class="required-field">*</span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-paint-brush grey-text"></i></div>
+                </div>
+                <select class="form-control" name="doctor" [(ngModel)]="form.data.doctor" aria-label="ngSelected"
+                  required>
+                  <option [ngValue]="undefined">{{ 'Select doctor' | translate }}</option>
+                  <option value="Neurologist">{{ 'Neurologist' | translate }}</option>
+                  <option value="Dentist">{{ 'Dentist' | translate }}</option>
+                  <option value="GeneralPhy">{{ 'GeneralPhy' | translate }}</option>
+                </select>
+              </div>
+              <span class="alertRedColor">{{ form.inputerror.doctor }}</span>
+            </div>
+
+            <!-- Patient Field -->
+            <!-- <div class="form-group pt-2">
+              <label><b>{{ 'Patient' | translate }}</b><span class="required-field">*</span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-user grey-text"></i></div>
+                </div>
+                <select class="form-control" name="patient" [(ngModel)]="form.data.patient" aria-label="ngSelected">
+                  <option [ngValue]="undefined">{{ 'Select Patient' | translate }}</option>
+                  <option *ngFor="let obj of form.preload.patient" [value]="obj.key">{{ obj.value }}</option>
+                </select>
+              </div>
+              <span class="alertRedColor">{{ form.inputerror.patient }}</span>
+            </div> -->
+            
+            <div class="form-group pt-2">
+              <label><b>{{ 'Patient' | translate }}</b><span class="required-field">*</span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-paint-brush grey-text"></i></div>
+                </div>
+                <select class="form-control" name="patient" [(ngModel)]="form.data.patient" aria-label="ngSelected"
+                  required>
+                  <option [ngValue]="undefined">{{ 'Select patient' | translate }}</option>
+                  <option value="Kamal">{{ 'Kamal' | translate }}</option>
+                  <option value="Raj">{{ 'Raj' | translate }}</option>
+                  <option value="Kunal">{{ 'Kunal' | translate }}</option>
+                  <option value="Rahul">{{ 'Rahul' | translate }}</option>
+                  <option value="Megha">{{ 'Megha' | translate }}</option>
+                </select>
+
+                <!-- <select class="form-control" name="patient" [(ngModel)]="form.data.patient" aria-label="ngSelected">
+                  <option [ngValue]="" value="undefined">{{' Select Patient' | translate }}</option>
+                  <option *ngFor="let obj of form.preload.followuplist" [value]="obj.key">{{obj.value}}</option>
+                </select> -->
+              </div>
+              <span class="alertRedColor">{{ form.inputerror.patient }}</span>
+            </div>
+
+            <!-- Buttons -->
+            <div class="row pt-2 pl-2 pb-3">
+              <div class="col-md-3"></div>
+
+              <div class="pt-2">
+                <button *ngIf="!form.data.id" (click)="onUpload()" class="btn btn-success mr-2">
+                  {{ 'Save' | translate }}
+                </button>
+              </div>
+
+              <div class="col-md-1"></div>
+
+              <div class="pt-2">
+                <button *ngIf="form.data.id" (click)="onUpload()" class="btn btn-success mr-2">
+                  {{ 'Update' | translate }}
+                </button>
+              </div>
+
+              <div class="pt-2">
+                <a class="btn btn-warning mr-1" [routerLink]="['/followuplist']"
+                  style="text-decoration: none; color: white;">
+                  {{ 'List' | translate }}
+                </a>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

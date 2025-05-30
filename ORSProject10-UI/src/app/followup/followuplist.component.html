@@ -1,0 +1,162 @@
+<app-navbar></app-navbar>
+
+<div class="content-wrapper" 
+     style="padding-top: 10%; padding-bottom: 15; 
+            background: url(assets/files/back1.jpg) no-repeat center center; 
+            background-attachment: fixed; 
+            background-size: cover; 
+            width: auto; 
+            height: 90vh;">
+  
+  <div class="container-fluid" >
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="height: 50px;">
+        <div class="text-center">
+          <h1 class="text-primary font-weight-bold">{{ 'FollowUp List' | translate }}</h1>
+        </div>
+      </div>
+
+      <div class="row p-1">
+      
+        <div class="col-sm-2">
+          <input type="text" class="form-control" 
+                 [(ngModel)]="form.searchParams.fees"
+                 placeholder="{{ 'Search fees' | translate }}">
+        </div>
+
+        
+
+        
+
+        <div class="col-sm-2">
+          <input type="date" class="form-control" 
+                 [(ngModel)]="form.searchParams.visitDate"
+                 placeholder="{{ 'Search visitDate' | translate }}">
+        </div>
+
+        <div class="col-sm-2">
+          <select class="form-control" name="doctor" [(ngModel)]="form.searchParams.doctor" aria-label="ngSelected" required>
+            <option [ngValue]="undefined">{{ 'Select Doctor' | translate }}</option>
+                  <option value="Neurologist">{{'Neurologist' | translate}} </option>
+                  <option value="Dentist">{{'Dentist' | translate}} </option>
+                  <option value="GeneralPhy">{{ 'GeneralPhy' | translate }}</option>
+                          </select>
+          
+        </div>
+
+        <!-- <div class="col-sm-2">
+          <select class="form-control" name="patient" [(ngModel)]="form.searchParams.patient" aria-label="ngSelected" required>
+            <option [ngValue]="undefined">{{ 'Select Patient' | translate }}</option>
+                  <option value="Kamal">{{ 'Kamal' | translate }}</option>
+                  <option value="Raj">{{ 'Raj' | translate }}</option>
+                  <option value="Kunal">{{ 'Kunal' | translate }}</option>
+                  <option value="Rahul">{{ 'Rahul' | translate }}</option>
+                  <option value="Megha">{{ 'Megha' | translate }}</option>
+                          </select>
+          
+        </div> -->
+
+        <div class="col-sm-2">
+          <select class="form-control" name="patient" 
+                  [(ngModel)]="form.searchParams.patient" 
+                  aria-label="ngSelected">
+            <option [ngValue]="" value="undefined">{{ 'Select Patient' | translate }}</option>
+            <option *ngFor="let obj of form.preload.followuplist" [value]="obj.key">{{ obj.value }}</option>
+          </select>
+        </div>
+
+        <div class="col-sm-1">
+          <button (click)="submit()" class="btn btn-primary">{{ 'Search' | translate }}</button>
+        </div>
+
+        <div class="col-sm-2">
+          <button (click)="forward('/followup')" type="button" class="btn btn-success">{{ 'Add FollowUp' | translate }}</button>
+        </div>
+
+        <div class="col-sm-1">
+          <button (click)="deleteMany()" class="btn btn-danger">{{ 'Delete' | translate }}</button>
+        </div>
+      </div>
+
+      <div *ngIf="form.error" class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ form.message }}
+      </div>
+
+      <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ form.message }}
+      </div>
+
+      <div class="p-1">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover font-weight-bold text-primary">
+            <thead class="thead-light text-uppercase">
+              <tr>
+                <th>
+                  <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
+                </th>
+                <th>{{ 'S.No' | translate }}</th>
+                <th>{{ 'fees' | translate }}</th>
+                <th>{{ 'visitDate' | translate }}</th>
+                <th>{{ 'doctor' | translate }}</th>
+                <th>{{ 'patient' | translate }}</th>
+                <th>{{ 'Edit' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let m of form.list; let i = index">
+                <td>
+                  <input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id" />
+                </td>
+                <td>{{ (form.pageNo * 5) + i + 1 }}</td>
+                <td>{{ m.fees }}</td>
+  
+                <td>{{ m.visitDate | date: 'dd-MM-yyyy' }}</td>
+                  <td>{{ m.doctor }}</td>
+
+                <td>{{ m.patient }}</td>
+                <td>
+                  <a (click)="forward('/followup/' + m.id)" style="cursor: pointer;">
+                    <i class="fa fa-edit text-info"></i>
+                  </a>
+                  <!--
+                  <a (click)="delete(m.id)" style="cursor: pointer;">
+                    <i class="fa fa-trash text-danger"></i>
+                  </a>
+                  -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <table style="width: 100%;">
+          <tr>
+            <td style="width: 50%;">
+              <button (click)="previous()" [disabled]="form.pageNo == 0" class="btn btn-info">
+                {{ 'Previous' | translate }}
+              </button>
+            </td>
+
+            <td *ngIf="form.list.length != 0" style="width: 50%;"></td>
+
+            <td *ngIf="form.list.length == 0" style="width: 50%;">
+              <a class="btn btn-warning mr-1" [routerLink]="['/followuplist']" (click)="exit()">
+                {{ 'Back' | translate }}
+              </a>
+            </td>
+
+            <td>
+              <button (click)="next()" [disabled]="nextList == 0" type="button" class="btn btn-info">
+                {{ 'Next' | translate }}
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

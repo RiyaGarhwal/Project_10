@@ -36,6 +36,10 @@ import { SpinnerComponent} from './spinner/spinner.component';
 import {MyprofileComponent} from './user/myprofile.component';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product/product-list.component';
+import { FollowupComponent } from './followup/followup.component';
+import { FollowuplistComponent } from './followup/followuplist.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
 
 const routes: Routes = [
     {
@@ -186,6 +190,36 @@ const routes: Routes = [
     {
         path: 'product/:id',
         component: ProductComponent
+      
+    },
+    {
+        path: 'followup',
+        component : FollowupComponent
+      
+    },
+    {
+        path : 'followuplist',
+        component : FollowuplistComponent
+      
+    },
+    {
+        path: 'followup/:id',
+        component: FollowupComponent
+      
+    },
+    {
+        path: 'prescription',
+        component : PrescriptionComponent
+      
+    },
+    {
+        path : 'prescriptionlist',
+        component : PrescriptionlistComponent
+      
+    },
+    {
+        path: 'prescription/:id',
+        component: PrescriptionComponent
       
     },
     {

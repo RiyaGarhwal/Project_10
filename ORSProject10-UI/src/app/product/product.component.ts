@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductComponent extends BaseCtl {
 
  constructor(public locator: ServiceLocatorService, public route: ActivatedRoute) {
-     super(locator.endpoints.ROLE, locator, route);
+     super(locator.endpoints.PRODUCT, locator, route);
    }
    validate() {
      return this.validateForm(this.form.data);

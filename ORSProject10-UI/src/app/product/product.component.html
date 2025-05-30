@@ -19,9 +19,9 @@ background-size: cover;width:auto;
     <div class="card">
       <div class="card-body shadow-lg grad">
         <form>
-          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold" style="text-align: center;">{{'Add Role' |
+          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold" style="text-align: center;">{{'Add Product' |
             translate }}</h2>
-          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold" style="text-align: center;">{{'Update Role' |
+          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold" style="text-align: center;">{{'Update Product' |
             translate }}</h2>
 
 
@@ -47,7 +47,7 @@ background-size: cover;width:auto;
                   <div class="input-group-text"><i class="fa fa-user grey-text"></i> </div>
                 </div>
                 <input type="text" name="name" [(ngModel)]="form.data.name" class="form-control"
-                  placeholder="{{'Enter Role Name' | translate }}">
+                  placeholder="{{'Enter Product Name' | translate }}">
               </div>
             </div>
           </div>

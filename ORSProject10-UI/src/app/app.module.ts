@@ -54,6 +54,12 @@ import { AuthService } from './auth.service';
 import {MyprofileComponent} from './user/myprofile.component';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product/product-list.component';
+import { FollowupComponent } from './followup/followup.component';
+import { FollowuplistComponent } from './followup/followuplist.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
+
+
 
 
 
@@ -105,6 +111,12 @@ export function myHttpLoader(http: HttpClient) {
     MyprofileComponent,
     ProductComponent,
     ProductListComponent,
+    FollowupComponent,
+    FollowuplistComponent,
+    PrescriptionComponent,
+    PrescriptionlistComponent,
+    
+    
     
     
     

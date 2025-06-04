@@ -40,6 +40,8 @@ import { FollowupComponent } from './followup/followup.component';
 import { FollowuplistComponent } from './followup/followuplist.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
 import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
+import { LeadComponent } from './lead/lead.component';
+import { LeadlistComponent } from './lead/leadlist.component';
 
 const routes: Routes = [
     {
@@ -220,6 +222,22 @@ const routes: Routes = [
     {
         path: 'prescription/:id',
         component: PrescriptionComponent
+      
+    },
+    {
+        path: 'lead',
+        component : LeadComponent
+      
+    },
+    {
+        path : 'leadlist',
+        component : LeadlistComponent
+      
+    },
+    {
+        path: 'lead/:id',
+        component: LeadComponent
+         
       
     },
     {

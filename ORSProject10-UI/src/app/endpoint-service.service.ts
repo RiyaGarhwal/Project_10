@@ -23,4 +23,5 @@ export class EndpointServiceService {
   public PRODUCT = this.SERVER_URL + "/Product";
   public FOLLOWUP = this.SERVER_URL + "/FollowUp";
   public PRESCRIPTION = this.SERVER_URL + "/Prescription";
+  public LEAD = this.SERVER_URL + "/Lead";
 }

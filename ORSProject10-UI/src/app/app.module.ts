@@ -58,6 +58,8 @@ import { FollowupComponent } from './followup/followup.component';
 import { FollowuplistComponent } from './followup/followuplist.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
 import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
+import { LeadComponent } from './lead/lead.component';
+import { LeadlistComponent } from './lead/leadlist.component';
 
 
 
@@ -115,6 +117,8 @@ export function myHttpLoader(http: HttpClient) {
     FollowuplistComponent,
     PrescriptionComponent,
     PrescriptionlistComponent,
+    LeadComponent,
+    LeadlistComponent,
     
     
     

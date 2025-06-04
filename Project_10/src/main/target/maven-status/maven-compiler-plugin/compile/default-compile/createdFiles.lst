@@ -23,6 +23,7 @@ com\rays\service\MarksheetServiceImpl.class
 com\rays\common\message\MessageCtl.class
 com\rays\ctl\CollegeCtl.class
 com\rays\common\attachment\AttachmentForm.class
+com\rays\dto\LeadDTO.class
 com\rays\dao\SubjectDAOImpl.class
 com\rays\form\RoleForm.class
 com\rays\service\SubjectServiceImpl.class
@@ -30,6 +31,7 @@ com\rays\ctl\FacultyCtl.class
 com\rays\common\BaseForm.class
 com\rays\form\MarksheetForm.class
 com\rays\dao\TimeTableDAOInt.class
+com\rays\form\LeadForm.class
 com\rays\ctl\RoleCtl.class
 com\rays\service\RoleServiceImpl.class
 com\rays\common\message\MessageDAOImpl.class
@@ -41,6 +43,7 @@ com\rays\exception\DatabaseException.class
 com\rays\service\FacultyServiceImpl.class
 com\rays\service\SubjectServiceInt.class
 com\rays\common\attachment\AttachmentSummaryDTO.class
+com\rays\dao\LeadDAOInt.class
 com\rays\dto\MarksheetDTO.class
 com\rays\dao\RoleDAOInt.class
 com\rays\common\attachment\AttachmentBaseDTO.class
@@ -81,6 +84,7 @@ com\rays\service\UserServiceInt.class
 com\rays\common\attachment\AttachmentServiceInt.class
 com\rays\form\FacultyForm.class
 com\rays\dto\ProductDTO.class
+com\rays\service\LeadServiceImpl.class
 com\rays\form\LoginForm.class
 com\rays\ctl\UserCtl.class
 com\rays\ctl\TimeTableCtl.class
@@ -93,10 +97,12 @@ com\rays\dao\ProductDAOInt.class
 com\rays\common\mail\EmailDTO.class
 com\rays\ctl\PrescriptionCtl.class
 com\rays\common\attachment\AttachmentCtl.class
+com\rays\service\LeadServiceInt.class
 com\rays\service\RoleServiceInt.class
 com\rays\dao\FacultyDAOImpl.class
 com\rays\ctl\ProductCtl.class
 com\rays\dao\FollowUpDAOInt.class
+com\rays\dao\LeadDAOImpl.class
 com\rays\form\CourseForm.class
 com\rays\common\BaseDTO.class
 com\rays\common\FrontCtl.class
@@ -129,6 +135,7 @@ com\rays\form\TimeTableForm.class
 com\rays\common\attachment\AttachmentDTO.class
 com\rays\form\FollowUpForm.class
 com\rays\form\SubjectForm.class
+com\rays\ctl\LeadCtl.class
 com\rays\common\message\MessageServiceInt.class
 com\rays\dao\UserDAOInt.class
 com\rays\dao\PrescriptionDAOInt.class

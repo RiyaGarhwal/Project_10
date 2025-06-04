@@ -42,6 +42,8 @@ import { PrescriptionComponent } from './prescription/prescription.component';
 import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
 import { LeadComponent } from './lead/lead.component';
 import { LeadlistComponent } from './lead/leadlist.component';
+import { OrderComponent } from './order/order.component';
+import { OrderlistComponent } from './order/orderlist.component';
 
 const routes: Routes = [
     {
@@ -237,6 +239,22 @@ const routes: Routes = [
     {
         path: 'lead/:id',
         component: LeadComponent
+         
+      
+    },
+    {
+        path: 'order',
+        component : OrderComponent
+      
+    },
+    {
+        path : 'orderlist',
+        component : OrderlistComponent
+      
+    },
+    {
+        path: 'order/:id',
+        component: OrderComponent
          
       
     },

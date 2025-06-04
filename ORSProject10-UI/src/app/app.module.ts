@@ -60,6 +60,8 @@ import { PrescriptionComponent } from './prescription/prescription.component';
 import { PrescriptionlistComponent } from './prescription/prescriptionlist.component';
 import { LeadComponent } from './lead/lead.component';
 import { LeadlistComponent } from './lead/leadlist.component';
+import { OrderComponent } from './order/order.component';
+import { OrderlistComponent } from './order/orderlist.component';
 
 
 
@@ -119,6 +121,8 @@ export function myHttpLoader(http: HttpClient) {
     PrescriptionlistComponent,
     LeadComponent,
     LeadlistComponent,
+    OrderComponent,
+    OrderlistComponent,
     
     
     

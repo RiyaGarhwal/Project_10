@@ -24,4 +24,5 @@ export class EndpointServiceService {
   public FOLLOWUP = this.SERVER_URL + "/FollowUp";
   public PRESCRIPTION = this.SERVER_URL + "/Prescription";
   public LEAD = this.SERVER_URL + "/Lead";
+  public ORDER = this.SERVER_URL + "/Order";
 }
